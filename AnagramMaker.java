@@ -62,8 +62,7 @@ public class AnagramMaker {
 	 */
 	public void runAnagramMaker() {
 		ArrayList<String> anagram = new ArrayList<>();
-		System.out.println(wu.allWords("digit"));
-		anagramMaker("digit", anagram);
+		anagramMaker("cupertino", anagram);
 	}
 
 	public void anagramMaker(String phrase, ArrayList<String> anagram){
@@ -72,16 +71,15 @@ public class AnagramMaker {
 			for (int i = 0 ; i < allWords.size(); i++){
 				anagram.add(allWords.get(i));
 				String newPhrase = wu.removeLetters(phrase, allWords.get(i));
-				System.out.println(newPhrase);
 				anagramMaker(newPhrase, anagram);
 				anagram.remove(anagram.size() - 1);
 			}
 
 		} else {
-			// for (int i = 0; i < anagram.size(); i++){
-			// 	System.out.print(anagram.get(i) + " ");
-			// }
-			// System.out.println();
+			for (int i = 0; i < anagram.size(); i++){
+				System.out.print(anagram.get(i) + " ");
+			}
+			System.out.println();
 		}
 	}
 	

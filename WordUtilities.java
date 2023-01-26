@@ -199,13 +199,16 @@ public class WordUtilities
 
 	public String removeLetters(String initial, String letters){
 		String out = "";
-		int starter = 0;
+
 		for (int i = 0; i < initial.length(); i++){
 			boolean shouldAdd = true; 
-			for (int j = starter; j < letters.length(); j++){
+			for (int j = 0; j < letters.length(); j++){
 				if (initial.charAt(i) == letters.charAt(j)){
 					shouldAdd = false;
-					starter ++;
+					if (j == letters.length() -1)
+						letters = letters.substring(0, j);
+					else
+						letters = letters.substring(0, j) + letters.substring(j+1);
 					break;
 				}
 			}
